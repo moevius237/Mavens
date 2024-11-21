@@ -54,4 +54,14 @@ public class Libro {
     public void setId(Long id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "titulo='" + titulo + '\'' +
+                ", id=" + id +
+                ", anyoPublicacion=" + anyoPublicacion +
+                ", temas=" + temas +
+                '}';
+    }
 }

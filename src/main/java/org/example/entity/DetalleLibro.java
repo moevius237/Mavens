@@ -51,4 +51,14 @@ public class DetalleLibro {
     public void setId(Long id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "DetalleLibro{" +
+                "id=" + id +
+                ", numeroPaginas='" + numeroPaginas + '\'' +
+                ", resumen='" + resumen + '\'' +
+                ", libro=" + libro +
+                '}';
+    }
 }
