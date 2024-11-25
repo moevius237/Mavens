@@ -10,10 +10,10 @@
         <mapping class="org.example.entity.Capitulo"></mapping>
         <mapping class="org.example.entity.DetalleLibro"></mapping>
         <mapping class="org.example.entity.Libro"></mapping>
-        <mapping class="org.example.entity.LibroAutorId"></mapping>
         <mapping class="org.example.entity.LibroAutor"></mapping>
         <mapping class="org.example.entity.Tema"></mapping>
         <mapping class="org.example.entity.Autor"></mapping>
+        <mapping class="org.example.entity.Resenya"></mapping>
 
     </session-factory>
 </hibernate-configuration>

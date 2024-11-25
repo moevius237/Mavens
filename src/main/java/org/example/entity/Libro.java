@@ -34,6 +34,8 @@ public class Libro {
     inverseJoinColumns = @JoinColumn(name = "tema_id"))
     private Set<Tema> temas = new HashSet<>();
 
+    @OneToMany(mappedBy = "libro",orphanRemoval = true)//Es el nombre del atributo de la otra clase
+    private Set<Resenya> resenyas = new HashSet<>();
 
     public Integer getAnyoPublicacion() {
         return anyoPublicacion;
