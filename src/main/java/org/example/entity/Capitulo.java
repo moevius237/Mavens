@@ -16,6 +16,9 @@ public class Capitulo {
     @Column(name = "numero")
     private String numero;
 
+    @Column(name = "numero_paginas")
+    private int numeroPaginas;
+
     public String getNumero() {
         return numero;
     }

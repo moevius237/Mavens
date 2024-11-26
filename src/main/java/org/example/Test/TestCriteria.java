@@ -51,7 +51,11 @@ public class TestCriteria {
                 //Todo mostrar el numero de autores por libro y tambien muestro el nombre de libro
                 CriteriaBuilder builder3 = session.getCriteriaBuilder();
                 CriteriaQuery<Tuple> tupleCriteriaQuery = builder3.createTupleQuery();
-                Root
+                Root<Libro> root = tupleCriteriaQuery.from(Libro.class);
+                Join<Libro, LibroAutor> libroAutorJoin = root.join("autores");
+                tupleCriteriaQuery.multiselect(root.get("titulo"),builder3.count(libroAutorJoin))
+                        .groupBy(root.get("id"));
+                System.out.println(session.createQuery(tupleCriteriaQuery).getResultList());
 
             } catch (Exception e) {
                 throw new RuntimeException(e);

@@ -25,8 +25,10 @@ public class Libro {
     }
 
     @Column(name = "anyo_publicacion")
-    private Integer anyoPublicacion;
+    private int anyoPublicacion;
 
+    @OneToOne(mappedBy = "libro")
+    private DetalleLibro detalleLibro;
 
     @ManyToMany
     @JoinTable(name = "libro_has_tema",
