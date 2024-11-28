@@ -20,7 +20,7 @@ public class Test2 {
 //            query.setParameter(1,"%java%");
 //            query.setParameter("tituloParcial","%java%");
 //            List<Libro> listas = query.getResultList();
-////            System.out.println(listas);
+//            System.out.println(listas);
 //
 //            String hs = "SELECT l.titulo as titulo, l.anyoPublicacion FROM Libro l WHERE l.titulo LIKE ?1";
 //            Query<Tuple> query = session.createQuery(hs,Tuple.class);
