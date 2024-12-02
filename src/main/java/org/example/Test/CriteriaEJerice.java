@@ -49,6 +49,8 @@ public class CriteriaEJerice {
                 criteriaQuery3.select(libroLibroAutorIdJoin.get("titulo"))
                         .where(criteriaBuilder3.like(autorIdAutorJoin.get("nombre"),"A%"));
                 System.out.println(session.createQuery(criteriaQuery3).getResultList());
+
+
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
