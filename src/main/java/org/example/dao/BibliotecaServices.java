@@ -14,11 +14,4 @@ public class BibliotecaServices {
         this.capituloDao = new CapituloDaoImpl();
     }
 
-    public boolean validaPaginaLibro(long id){
-        Optional<Libro> libro = libroDao.findById(id);
-        if (libro.isPresent()){
-            System.out.println(libro.get().getAnyoPublicacion());
-        }
-        return false;
-    }
 }

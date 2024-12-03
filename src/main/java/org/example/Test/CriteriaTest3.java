@@ -1,5 +1,7 @@
 package org.example.Test;
 
+import jakarta.persistence.PersistenceException;
+import jakarta.persistence.Tuple;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Join;
@@ -25,6 +27,22 @@ public class CriteriaTest3 {
 
             System.out.println(session.createQuery(criteriaQuery4).getResultList());
         }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static void metodo11(){
+        try (Session session = HibernateUtil.getSession().openSession()){
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<Tuple> criteriaQuery = builder.createTupleQuery();
+            Root<LibroAutor> libroAutorRoot = criteriaQuery.from(LibroAutor.class);
+            Join<LibroAutor, Autor> autorJoin = libroAutorRoot.join("autor");
+            Join<LibroAutor, Libro> libroJoin = libroAutorRoot.join("libro");
+            Join<Libro, LibroAutor> libroAutorJoin = libroAutorRoot.join("autores");
+            criteriaQuery.multiselect(autorJoin.get("nombre"), builder.countDistinct(libroAutorRoot.get("libro")))
+                    .where(builder.notEqual(libroAutorRoot.get("autor"),libroAutorJoin.get("autor")))
+                    .groupBy(autorJoin.get("id"))
+                    .having(builder.gt( builder.countDistinct(libroAutorRoot.get("libro")),1L));
+        }catch(PersistenceException e){
             e.printStackTrace();
         }
     }
